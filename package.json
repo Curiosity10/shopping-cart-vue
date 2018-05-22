@@ -6,8 +6,9 @@
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "start": "concurrently \"nodemon ./bin/www\" \"npm run dev\"  ",
-    "build": "node build/build.js"
+    "start": "concurrently \"node ./bin/www\" \"node app.js\"  ",
+    "build": "node build/build.js",
+    "develop": "concurrently \"nodemon ./bin/www\" \"npm run dev\" "
   },
   "dependencies": {
     "axios": "^0.18.0",

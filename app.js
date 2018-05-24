@@ -1,9 +1,10 @@
 const createError = require('http-errors');
 const express = require('express');
-const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
+const cors = require("cors");
 const path = require('path');
 const products = require('./routes/products');
+const morgan = require('morgan');
 
 const app = express();
 
@@ -17,15 +18,11 @@ mongoose.Promise = global.Promise;
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-
+app.use(cors({ origin: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(express.static(path.join(__dirname, 'dist')));
+app.use(morgan('dev'));
 
 app.use('/products', products);
 
@@ -46,3 +43,4 @@ app.use(function(err, req, res) {
 });
 
 module.exports = app;
+

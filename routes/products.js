@@ -15,8 +15,8 @@ router.get('/', function (req, res, next) {
       .skip(perPage * page)
       .exec(function (err, products) {
         pages = Math.floor(count / perPage);
-        let prevUrl = `http://localhost:3000/products?page=${page - 1}`;
-        let nextUrl = `http://localhost:3000/products?page=${page + 1}`;
+        let prevUrl = `https://vue-course-project.herokuapp.com/products?page=${page - 1}`;
+        let nextUrl = `https://vue-course-project.herokuapp.com/products?page=${page + 1}`;
         let response = {
           products,
           currentPage: page,

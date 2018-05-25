@@ -7,13 +7,14 @@
   "scripts": {
     "heroku-postbuild": "npm run build",
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "start": "set NODE_ENV=production && node ./bin/www",
+    "start": "node ./bin/www",
     "build": "node build/build.js",
     "develop": "concurrently \"nodemon ./bin/www\" \"npm run dev\" "
   },
   "dependencies": {
     "axios": "^0.18.0",
     "concurrently": "^3.5.1",
+    "connect-history-api-fallback": "^1.5.0",
     "cors": "^2.8.4",
     "express": "~4.16.0",
     "firebase": "^5.0.3",

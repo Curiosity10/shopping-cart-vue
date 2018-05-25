@@ -2,6 +2,7 @@ const createError = require('http-errors');
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require("cors");
+const history = require('connect-history-api-fallback');
 const path = require('path');
 const products = require('./routes/products');
 const morgan = require('morgan');
@@ -19,6 +20,7 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 app.use(cors({ origin: true }));
+app.use(history());  
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'dist')));

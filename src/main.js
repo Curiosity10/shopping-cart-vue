@@ -10,30 +10,27 @@ import App from './App.vue'
 import router from './router'
 import store from './store/index'
 
-
-Vue.config.productionTip = true;
-Vue.use(Vuetify);
-Vue.use(VueRouter);
-
-
+Vue.config.productionTip = true
+Vue.use(Vuetify)
+Vue.use(VueRouter)
 
 new Vue({
   store,
   router,
-  created() {
+  created () {
     fb.initializeApp({
-      apiKey: "AIzaSyC1XVw8-SymhR3kK3EanygHNeijXgjS9kE",
-      authDomain: "course-vue.firebaseapp.com",
-      databaseURL: "https://course-vue.firebaseio.com",
-      projectId: "course-vue",
-      storageBucket: "course-vue.appspot.com",
-      messagingSenderId: "1012528004285"
-        });
+      apiKey: 'AIzaSyC1XVw8-SymhR3kK3EanygHNeijXgjS9kE',
+      authDomain: 'course-vue.firebaseapp.com',
+      databaseURL: 'https://course-vue.firebaseio.com',
+      projectId: 'course-vue',
+      storageBucket: 'course-vue.appspot.com',
+      messagingSenderId: '1012528004285'
+    })
     fb.auth().onAuthStateChanged(user => {
       if (user) {
         this.$store.dispatch('autoLoginUser', user)
       }
     })
-      },
-  render: h => h(App),
-}).$mount('#app');
+  },
+  render: h => h(App)
+}).$mount('#app')

@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 'use strict'
 const path = require('path')
 const utils = require('./utils')
@@ -8,8 +9,6 @@ const { VueLoaderPlugin } = require('vue-loader')
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
-
-
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
@@ -24,12 +23,12 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   plugins: [
-    new VueLoaderPlugin(),
+    new VueLoaderPlugin()
   ],
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      '@': resolve('src'),
+      '@': resolve('src')
     }
   },
   module: {

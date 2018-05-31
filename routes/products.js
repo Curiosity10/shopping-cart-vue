@@ -1,49 +1,50 @@
-const express = require('express');
-const router = express.Router();
+/* eslint-disable no-console,handle-callback-err,no-unused-vars */
+const express = require('express')
+const router = express.Router()
 
-const Product = require('../models/Product');
+const Product = require('../models/Product')
 
 router.get('/', function (req, res, next) {
-  let perPage = 3;
-  let page = parseInt(req.query.page) || 0;
-  let pages = 0;
-  let nextUrl = '';
-  let prevUrl = '';
+  const perPage = 3
+  const page = parseInt(req.query.page) || 0
+  let pages = 0
+  const nextUrl = ''
+  const prevUrl = ''
   Product.count().exec(function (err, count) {
     Product.find()
       .limit(perPage)
       .skip(perPage * page)
       .exec(function (err, products) {
-        pages = Math.floor(count / perPage);
-        let prevUrl = `https://shopping-cart-vue.herokuapp.com/products?page=${page - 1}`;
-        let nextUrl = `https://shopping-cart-vue.herokuapp.com/products?page=${page + 1}`;
-        let response = {
+        pages = Math.floor(count / perPage)
+        const prevUrl = `https://shopping-cart-vue.herokuapp.com/products?page=${page - 1}`
+        const nextUrl = `https://shopping-cart-vue.herokuapp.com/products?page=${page + 1}`
+        const response = {
           products,
           currentPage: page,
           pages,
           count,
           prevUrl: '',
           nextUrl: ''
-        };
+        }
         if (page === 0) {
-          Object.assign(response, {nextUrl});
+          Object.assign(response, { nextUrl })
         } else if (page === pages - 1) {
-          Object.assign(response, {prevUrl});
+          Object.assign(response, { prevUrl })
         } else if (page > 0 && page < pages) {
-          Object.assign(response, {nextUrl, prevUrl});
+          Object.assign(response, { nextUrl, prevUrl })
         } else {
           res.redirect('/products')
         }
-        res.json(response);
-      });
-  });
-});
+        res.json(response)
+      })
+  })
+})
 
 router.get('/:id', function (req, res, next) {
   Product.findById(req.params.id, function (err, product) {
-    if (err) return console.log(err);
-    res.status(200).json(product);
+    if (err) return console.log(err)
+    res.status(200).json(product)
   })
-});
+})
 
-module.exports = router;
+module.exports = router

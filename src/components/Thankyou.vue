@@ -1,10 +1,21 @@
 <template>
   <div class="thankyou">
     <p class="headline text-xs-center mt-3">You will recieve an Email soon, Thank you !</p>
-    <v-carousel dark hide-controls hide-delimiters>
-      <v-carousel-item v-for="(item,i) in items" :src="item.src" :key="i"></v-carousel-item>
+    <v-carousel
+      dark
+      hide-controls
+      hide-delimiters>
+      <v-carousel-item
+        v-for="(item,i) in items"
+        :src="item.src"
+        :key="i"/>
     </v-carousel>
-    <v-btn alt="Home" tag="a" :to="{name: 'home'}" color="success" class="mt-3 title thankyou_back">Back to Web site</v-btn>
+    <v-btn
+      :to="{name: 'home'}"
+      alt="Home"
+      tag="a"
+      color="success"
+      class="mt-3 title thankyou_back">Back to Web site</v-btn>
   </div>
 </template>
 

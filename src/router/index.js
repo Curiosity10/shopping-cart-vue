@@ -1,12 +1,12 @@
-import VueRouter from "vue-router"
+import VueRouter from 'vue-router'
 import AuthGuard from './auth-guard'
-import Products from "../components/Products.vue"
-import Product from "../components/Product.vue"
-import Checkout from "../components/Checkout.vue"
-import Thankyou from "../components/Thankyou.vue"
-import NotFound from "../components/NotFound.vue"
-import Login from "../components/Login.vue"
-import Registration from "../components/Registration.vue"
+import Products from '../components/Products.vue'
+import Product from '../components/Product.vue'
+import Checkout from '../components/Checkout.vue'
+import Thankyou from '../components/Thankyou.vue'
+import NotFound from '../components/NotFound.vue'
+import Login from '../components/Login.vue'
+import Registration from '../components/Registration.vue'
 
 const routes = [
   {
@@ -47,11 +47,11 @@ const routes = [
     name: `NotFound`,
     component: NotFound
   }
-];
+]
 
 const router = new VueRouter({
   routes,
   mode: `history`
-});
+})
 
 export default router

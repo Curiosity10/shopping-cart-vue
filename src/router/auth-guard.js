@@ -3,8 +3,7 @@ import store from '../store/index'
 export default function (to, from, next) {
   if (store.getters.user) {
     next()
-  }
-  else {
+  } else {
     next('/login?loginError=true')
   }
 }

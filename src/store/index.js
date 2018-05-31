@@ -1,11 +1,11 @@
-import Vuex from 'vuex';
-import Vue from 'vue';
+import Vuex from 'vuex'
+import Vue from 'vue'
 
-import user from "./modules/user";
-import products from "./modules/products";
-import common from "./modules/common";
+import user from './modules/user'
+import products from './modules/products'
+import common from './modules/common'
 
-Vue.use(Vuex);
+Vue.use(Vuex)
 
 const store = new Vuex.Store({
   modules: {
@@ -13,6 +13,6 @@ const store = new Vuex.Store({
     products,
     common
   }
-});
+})
 
 export default store

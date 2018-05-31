@@ -26,7 +26,7 @@ const webpackConfig = merge(baseWebpackConfig, {
   devtool: config.build.productionSourceMap ? config.build.devtool : false,
   output: {
     path: config.build.assetsRoot,
-    filename: utils.assetsPath('js/[name].[chunkhash].js'),
+    filename: utils.assetsPath('js/[name].[chunkhash].js')
   },
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
@@ -35,13 +35,13 @@ const webpackConfig = merge(baseWebpackConfig, {
     }),
     // extract css into its own file
     new MiniCssExtractPlugin({
-      filename: utils.assetsPath('css/[name].[chunkhash].css'),
+      filename: utils.assetsPath('css/[name].[chunkhash].css')
     }),
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
     new OptimizeCSSPlugin({
       cssProcessorOptions: config.build.productionSourceMap
-        ? { safe: true, map: { inline: false } }
+        ? { safe: true, map: { inline: false }}
         : { safe: true }
     }),
     // generate dist index.html with correct asset hash for caching.
@@ -92,9 +92,9 @@ const webpackConfig = merge(baseWebpackConfig, {
         vendor: {
           name: 'vendor',
           test: /[\\/]node_modules[\\/]/,
-          enforce: true,
-        },
-      },
+          enforce: true
+        }
+      }
     },
     runtimeChunk: 'single',
     minimizer: [
@@ -106,9 +106,9 @@ const webpackConfig = merge(baseWebpackConfig, {
         },
         sourceMap: config.build.productionSourceMap,
         parallel: true
-      }),
-    ],
-  },
+      })
+    ]
+  }
 })
 
 if (config.build.bundleAnalyzerReport) {

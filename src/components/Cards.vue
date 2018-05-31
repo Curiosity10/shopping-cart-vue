@@ -1,7 +1,16 @@
 <template>
   <v-container grid-list-lg>
-    <v-layout row wrap class="justify-space-around">
-      <v-card class="item teal lighten-4 mb-4" xs12 sm6 md4 v-for="product in products" :key="product._id">
+    <v-layout
+      row
+      wrap
+      class="justify-space-around">
+      <v-card
+        v-for="product in products"
+        :key="product._id"
+        class="item teal lighten-4 mb-4"
+        xs12
+        sm6
+        md4>
         <Card :product="product"/>
       </v-card>
     </v-layout>
@@ -9,14 +18,16 @@
 </template>
 
 <script>
-  import Card from './Card'
+/* eslint-disable vue/require-prop-types */
 
-  export default {
-    props: ['products'],
-    components: {
-      Card
-    }
-  }
+import Card from './Card'
+
+export default {
+  components: {
+    Card
+  },
+  props: ['products']
+}
 </script>
 
 <style scoped>

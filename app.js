@@ -1,11 +1,11 @@
-const createError = require('http-errors');
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require("cors");
 const history = require('connect-history-api-fallback');
+const createError = require('http-errors')
 const path = require('path');
+const expressStaticGzip = require("express-static-gzip");
 const products = require('./routes/products');
-const morgan = require('morgan');
 
 const app = express();
 
@@ -23,10 +23,10 @@ app.use(cors({ origin: true }));
 app.use(history());  
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'dist')));
-app.use(morgan('dev'));
+app.use("/", expressStaticGzip(path.join(__dirname, 'dist')));
 
 app.use('/products', products);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -6,6 +6,7 @@
         :to="link.url"
         v-for="link of links"
         :key="link.title"
+        :alt="link.title"
       >
         <v-list-tile-action class="list_link">
           <v-icon right medium>{{link.icon}}</v-icon>
@@ -18,6 +19,7 @@
       <v-list-tile
         @click="onLogout"
         v-if="isUserLoggedIn"
+        alt="Logout"
       >
         <v-list-tile-action>
           <v-icon right medium>exit_to_app</v-icon>
@@ -29,14 +31,14 @@
     </v-list>
     </v-navigation-drawer>
     <v-toolbar dark class="teal darken-3">
-      <v-toolbar-side-icon class="hidden-md-and-up" @click="sideNav = !sideNav"></v-toolbar-side-icon>
-      <v-btn class="headline" flat :to = "{name: 'home'}">
+      <v-toolbar-side-icon alt="Menu" class="hidden-md-and-up" @click="sideNav = !sideNav"></v-toolbar-side-icon>
+      <v-btn alt="Home" class="headline" flat :to = "{name: 'home'}">
         <v-icon left>home</v-icon>
         Shopping Cart
       </v-btn>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down" v-for="link of links" :key="link.title">
-        <v-btn dark class="title" flat :to = "link.url">
+        <v-btn :alt="link.title" dark class="title" flat :to = "link.url">
           <span>{{link.title}}</span>
           <v-icon v-if="link.title !== 'Cart'" right medium>{{link.icon}}</v-icon>
           <v-badge v-if="link.title === 'Cart'">
@@ -50,6 +52,7 @@
           v-if="isUserLoggedIn"
           dark
           class="title"
+          alt="Logout"
         >
           Logout
           <v-icon medium right>exit_to_app</v-icon>

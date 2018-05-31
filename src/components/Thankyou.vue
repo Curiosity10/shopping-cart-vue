@@ -4,7 +4,7 @@
     <v-carousel dark hide-controls hide-delimiters>
       <v-carousel-item v-for="(item,i) in items" :src="item.src" :key="i"></v-carousel-item>
     </v-carousel>
-    <v-btn tag="a" :to="{name: 'home'}" color="success" class="mt-3 title thankyou_back">Back to Web site</v-btn>
+    <v-btn alt="Home" tag="a" :to="{name: 'home'}" color="success" class="mt-3 title thankyou_back">Back to Web site</v-btn>
   </div>
 </template>
 

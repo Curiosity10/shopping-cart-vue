@@ -13,6 +13,7 @@
               color="green"
               @click="loginWithGoogle"
               class="title login_btn"
+              alt="Sign in with Google"
             >
               Sign in with Google
             </v-btn>
@@ -22,6 +23,7 @@
               color="light-blue darken-1"
               @click="loginWithTwitter"
               class="title login_btn"
+              alt="Sign in with Twitter"
             >
               Sign in with Twitter
             </v-btn>
@@ -31,6 +33,7 @@
               color="grey darken-4"
               @click="loginWithGithub"
               class="title login_btn"
+              alt="Sign in with Github"
             >
               Sign in with Github
             </v-btn>
@@ -39,6 +42,7 @@
               color="grey lighten-3"
               @click="selectedLogin = true"
               class="title login_btn"
+              alt="Sign in with Email"
             >
               Sign in with Email
             </v-btn>
@@ -82,6 +86,7 @@
                 outline
                 color="teal darken-3"
                 @click="onSubmit"
+                alt="Login"
               >
                 Login
               </v-btn>

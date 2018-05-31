@@ -48,6 +48,7 @@
                 color="teal darken-3"
                 @click="onSubmit"
                 :loading="loading"
+                alt="Create account"
               >
                 Create account
               </v-btn>

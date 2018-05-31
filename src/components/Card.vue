@@ -2,7 +2,7 @@
   <v-container class="pa-2 cards fill-height">
     <v-layout col wrap>
       <v-flex xs12>
-        <router-link class="card_link" tag="a" :to="{name: 'product', params: {id: product._id}}">
+        <router-link alt="product" class="card_link" tag="a" :to="{name: 'product', params: {id: product._id}}">
           <v-card-media class="card_img" :src="product.image" :alt="product.name" height="300px">
           </v-card-media>
         </router-link>
@@ -15,10 +15,10 @@
         <p class="subheading"><span class="title">Description: </span>{{ product.description.substring(0, 25) }}...</p>
         <p class="subheading"><span class="title">Price:  </span>${{ product.price }}</p>
         <v-card-actions class="btns justify-center">
-          <v-btn dark class="subheading" color="teal lighten-1" :to="{ name: 'product', params: { id: product._id }}">
+          <v-btn alt="description" dark class="subheading" color="teal darken-3" :to="{ name: 'product', params: { id: product._id }}">
             Description
           </v-btn>
-          <v-btn :disabled="!isUserLoggedIn" dark class="subheading btns_buyNow" color="teal lighten-1" @click="addToCart(product); snackbar = true">Buy Now</v-btn>
+          <v-btn :disabled="!isUserLoggedIn" dark class="subheading btns_buyNow" color="teal darken-1" @click="addToCart(product); snackbar = true">Buy Now</v-btn>
         </v-card-actions>
       </v-flex>
     </v-layout>

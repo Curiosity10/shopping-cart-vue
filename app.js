@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require("cors");
 const history = require('connect-history-api-fallback');
-const createError = require('http-errors')
+const createError = require('http-errors');
 const path = require('path');
 const expressStaticGzip = require("express-static-gzip");
 const products = require('./routes/products');
@@ -20,7 +20,7 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 app.use(cors({ origin: true }));
-app.use(history());  
+app.use(history());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use("/", expressStaticGzip(path.join(__dirname, 'dist')));
@@ -45,4 +45,3 @@ app.use(function(err, req, res) {
 });
 
 module.exports = app;
-

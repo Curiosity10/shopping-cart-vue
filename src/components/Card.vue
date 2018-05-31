@@ -2,7 +2,7 @@
   <v-container class="pa-2 cards fill-height">
     <v-layout col wrap>
       <v-flex xs12>
-        <router-link alt="product" class="card_link" tag="a" :to="{name: 'product', params: {id: product._id}}">
+        <router-link :aria-label="product.name" :alt="product.name" class="card_link" tag="a" :to="{name: 'product', params: {id: product._id}}">
           <v-card-media class="card_img" :src="product.image" :alt="product.name" height="300px">
           </v-card-media>
         </router-link>

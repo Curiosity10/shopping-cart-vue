@@ -42,24 +42,24 @@
               small
               fab
               color="success"
-              class="table_item btns_dec align-content-center"
+              class="table_item btns align-content-center"
               @click="action('min',props.item)">
-              <v-icon medium>minimize</v-icon>
+              <span>-</span>
             </v-btn>
             <v-btn
               small
               color="error"
-              class="table_item btns_clear"
+              class="table_item btns"
               @click="action('clear',props.item)">
-              <v-icon medium>delete</v-icon>
+              <v-icon medium>delete_forever</v-icon>
             </v-btn>
             <v-btn
               small
               fab
               color="success"
-              class="table_item btns_inc"
+              class="table_item btns"
               @click="action('add',props.item)">
-              <v-icon medium>plus_one</v-icon>
+              <span>+</span>
             </v-btn>
           </td>
         </template>
@@ -101,24 +101,24 @@
               small
               fab
               color="success"
-              class="table_item btns_dec align-content-center"
+              class="table_item btns align-content-center"
               @click="action('min',item)">
-              <v-icon medium>minimize</v-icon>
+              <span>-</span>
             </v-btn>
             <v-btn
               small
               color="error"
-              class="table_item btns_clear"
+              class="table_item btns"
               @click="action('clear',item)">
-              <v-icon medium>delete</v-icon>
+              <v-icon medium>delete_forever</v-icon>
             </v-btn>
             <v-btn
               small
               fab
               color="success"
-              class="table_item btns_inc"
+              class="table_item btns"
               @click="action('add',item)">
-              <v-icon medium>plus_one</v-icon>
+              <span>+</span>
             </v-btn>
           </div>
         </div>
@@ -266,6 +266,6 @@ export default {
     align-items center
   .item-xs_title
     font-weight bold
-  .btns_dec i
-    padding-bottom 12px
+  .btns
+    font-size 3rem
 </style>

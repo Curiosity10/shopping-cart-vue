@@ -190,6 +190,6 @@ export default {
   .login
     flex-wrap wrap
     &_btn
-      min-width 300px
+      min-width 250px
 </style>
 

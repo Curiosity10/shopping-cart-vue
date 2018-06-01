@@ -10,6 +10,7 @@
           :to="link.url"
           :key="link.title"
           :alt="link.title"
+          :loading="loading"
         >
           <v-list-tile-action class="list_link">
             <v-icon
@@ -27,6 +28,7 @@
           v-if="isUserLoggedIn"
           alt="Logout"
           @click="onLogout"
+          :loading="loading"
         >
           <v-list-tile-action>
             <v-icon
@@ -62,6 +64,7 @@
         <v-btn
           :alt="link.title"
           :to = "link.url"
+          :loading="loading"
           dark
           class="title"
           flat>
@@ -84,6 +87,7 @@
           class="title"
           alt="Logout"
           @click="onLogout"
+          :loading="loading"
         >
           Logout
           <v-icon
@@ -104,6 +108,9 @@ export default {
     }
   },
   computed: {
+    loading () {
+      return this.$store.getters.loading
+    },
     cart () {
       return this.$store.getters.getCart
     },

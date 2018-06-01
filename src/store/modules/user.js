@@ -49,7 +49,7 @@ export default {
       commit('clearError');
       commit('setLoading', true);
       const provider = new fb.auth.GoogleAuthProvider();
-      const user = fb.auth().signInWithRedirect(provider)
+      const user = fb.auth().signInWithPopup(provider)
         .then(() => {
           commit('setUser', new User(user.uid));
           commit('setLoading', false);
@@ -63,7 +63,7 @@ export default {
       commit('clearError');
       commit('setLoading', true);
       const provider = new fb.auth.GithubAuthProvider();
-      const user = fb.auth().signInWithRedirect(provider)
+      const user = fb.auth().signInWithPopup(provider)
         .then(() => {
           commit('setUser', new User(user.uid));
           commit('setLoading', false);
@@ -77,7 +77,7 @@ export default {
       commit('clearError');
       commit('setLoading', true);
       const provider = new fb.auth.TwitterAuthProvider();
-      const user = fb.auth().signInWithRedirect(provider)
+      const user = fb.auth().signInWithPopup(provider)
         .then(() => {
           commit('setUser', new User(user.uid));
           commit('setLoading', false);

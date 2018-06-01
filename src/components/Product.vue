@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <section class="product mt-3 pa-4">
+    <section class="product mt-3">
       <v-layout
         row
         wrap>
@@ -15,7 +15,7 @@
         <v-flex
           xs12
           md6>
-          <div class="product_info ml-5">
+          <div class="product_info">
             <h5 class="product_title display-2 mb-3 mt-3">{{ product.name }}</h5>
             <p class="product_category title">
               <span class="product_title headline">Vendor</span>: {{ product.vendor }}
@@ -98,6 +98,7 @@ export default {
     align-items center
     flex-wrap wrap
     border 1px solid rgb(0, 105, 92)
+    padding 30px
 
     &_info
       margin-left 50px
@@ -113,5 +114,10 @@ export default {
     &_buyNow:disabled
       pointer-events auto
       cursor no-drop
-
+  @media screen and (max-width: 400px)
+    .product
+      padding 10px
+      text-align center
+      &_info
+        margin-left 0
 </style>

@@ -49,6 +49,6 @@ export default {
 <style lang="stylus" scoped>
   @media screen and (max-width: 600px)
     .notFound_img
-      width 330px
+      width 300px
       border-radius 100%
 </style>

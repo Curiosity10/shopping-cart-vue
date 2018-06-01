@@ -3,7 +3,7 @@
     <v-layout
       col
       wrap>
-      <v-flex xs12>
+      <v-flex xs12 class="card_content">
         <router-link
           :aria-label="product.name"
           :alt="product.name"
@@ -16,10 +16,6 @@
             class="card_img"
             height="300px"/>
         </router-link>
-      </v-flex>
-      <v-flex
-        class="cards"
-        xs12>
         <v-card-title
           class="headline mb-4 justify-center"
           primary-title>
@@ -89,7 +85,8 @@ export default {
     color #00695C
     word-wrap break-word
     text-align center
-
+  .card_content
+    max-width 270px
   .cards
     max-width 330px
     display flex

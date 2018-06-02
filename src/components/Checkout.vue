@@ -2,7 +2,6 @@
   <v-container>
     <section class="checkout mt-3">
       <v-data-table
-        :loading="true"
         :headers="headers"
         :items="cart"
         hide-actions
@@ -24,11 +23,6 @@
             </span>
           </v-tooltip>
         </template>
-
-        <v-progress-linear
-          slot="progress"
-          color="green"
-          indeterminate/>
 
         <template
           slot="items"
@@ -153,7 +147,7 @@
             Thank you!
           </v-card-title>
           <v-card-text class="headline">
-            <p>Total: ${{ total }}</p>
+            <p class="checkout_total">Total: ${{ total }}</p>
           </v-card-text>
           <v-card-actions>
             <v-btn
@@ -255,6 +249,7 @@ export default {
 
   .checkout_total
     font-size 24px
+    color #c00f1b
   .card_item-xs
     display flex
     flex-direction column

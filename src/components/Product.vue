@@ -6,7 +6,7 @@
         wrap>
         <v-flex
           xs12
-          md6>
+          lg6>
           <img
             :src="product.image"
             :alt="product.name"
@@ -14,25 +14,25 @@
         </v-flex>
         <v-flex
           xs12
-          md6>
+          lg6>
           <div class="product_info">
-            <h5 class="product_title display-2 mb-3 mt-3">{{ product.name }}</h5>
+            <h5 class="product_title display-1 mb-3 mt-3">{{ product.name }}</h5>
             <p class="product_category title">
-              <span class="product_title headline">Vendor</span>: {{ product.vendor }}
+              <span class="product_title">Vendor</span>: {{ product.vendor }}
             </p>
             <p class="product_price title">
-            <span class="product_title headline">Price</span>: ${{ product.price }}</p>
+            <span class="product_title">Price:</span> ${{ product.price }}</p>
             <p class="product_color title">
-              <span class="product_title headline">Color:</span> {{ product.color }}
+              <span class="product_title">Color:</span> {{ product.color }}
             </p>
             <p class="product_country title">
-              <span class="product_title headline">Country:</span> {{ product.country }}
+              <span class="product_title">Country:</span> {{ product.country }}
             </p>
             <p class="product_material title">
-              <span class="product_title headline">Material:</span> {{ product.material }}
+              <span class="product_title">Material:</span> {{ product.material }}
             </p>
             <div class="product_description title mb-5">
-              <p class="product_title headline">Description: </p>{{ product.description }}
+              <p class="product_title mb-2">Description: </p>{{ product.description }}
             </div>
             <v-btn
               :disabled="!isUserLoggedIn"
@@ -104,20 +104,35 @@ export default {
       margin-left 50px
 
     &_img
-      width 100%
-      height 100%
-
+      height 550px
+    &_price
+      color #c00f1b
     &_title
+      font-size 1.6rem
       font-weight bold
-      color #2FA5BA
+      color #1875D0
       margin-bottom 0
     &_buyNow:disabled
       pointer-events auto
       cursor no-drop
-  @media screen and (max-width: 400px)
+  @media screen and (max-width: 1270px)
     .product
-      padding 10px
       text-align center
       &_info
         margin-left 0
+  @media screen and (max-width: 400px)
+    .product
+      padding 10px
+      text-align start
+      &_info
+        margin-left 0
+  @media screen and (max-width: 620px)
+    .product
+      text-align start
+      &_img
+        height 100%
+        width 100%
+      &_title
+        text-align center
+
 </style>

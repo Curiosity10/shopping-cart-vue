@@ -26,9 +26,9 @@
 
         <v-list-tile
           v-if="isUserLoggedIn"
+          :loading="loading"
           alt="Logout"
           @click="onLogout"
-          :loading="loading"
         >
           <v-list-tile-action>
             <v-icon
@@ -42,15 +42,16 @@
       </v-list>
     </v-navigation-drawer>
     <v-toolbar
-      dark
-      class="teal darken-3">
+      class="blue darken-2">
       <v-toolbar-side-icon
-        alt="Menu"
+        name="Menu"
+        dark
         class="hidden-md-and-up"
         @click="sideNav = !sideNav"/>
       <v-btn
         :to = "{name: 'home'}"
         alt="Home"
+        dark
         class="headline"
         flat>
         <v-icon left>home</v-icon>
@@ -65,29 +66,29 @@
           :alt="link.title"
           :to = "link.url"
           :loading="loading"
-          dark
           class="title"
+          dark
           flat>
           <span>{{ link.title }}</span>
           <v-icon
             v-if="link.title !== 'Cart'"
             right
             medium>{{ link.icon }}</v-icon>
-          <v-badge v-if="link.title === 'Cart'">
+          <v-badge color="white" v-if="link.title === 'Cart'">
             <v-icon
               right
               medium>{{ link.badge }}</v-icon>
-            <span slot="badge">{{ cart.length }}</span>
+            <span class="badge_text" slot="badge">{{ cart.length }}</span>
           </v-badge>
         </v-btn>
         <v-btn
           v-if="isUserLoggedIn"
+          :loading="loading"
           flat
-          dark
           class="title"
           alt="Logout"
+          dark
           @click="onLogout"
-          :loading="loading"
         >
           Logout
           <v-icon
@@ -139,4 +140,6 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+  .badge_text
+    color #2087C4
 </style>

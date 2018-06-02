@@ -7,7 +7,7 @@
       <v-card
         v-for="product in products"
         :key="product._id"
-        class="item teal lighten-4 mb-4"
+        class="item mb-4 elevation-5"
         xs12
         sm6
         md4>
@@ -30,6 +30,7 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style lang="stylus" scoped>
+  .item
+    border 2px solid #bdbdbd
 </style>

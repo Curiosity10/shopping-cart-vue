@@ -1,9 +1,11 @@
 <template>
-  <v-container class="pa-2 cards fill-height">
+  <v-container class="pt-3 pb-2 pl-4 pr-4 cards fill-height">
     <v-layout
       col
       wrap>
-      <v-flex xs12 class="card_content">
+      <v-flex
+        xs12
+        class="card_content">
         <router-link
           :aria-label="product.name"
           :alt="product.name"
@@ -13,33 +15,32 @@
           <v-card-media
             :src="product.image"
             :alt="product.name"
-            class="card_img"
+            class="card_img ma-1 mb-3"
             height="300px"/>
         </router-link>
-        <v-card-title
-          class="headline mb-4 justify-center"
-          primary-title>
-          <h3 class="card_heading">{{ product.name }}</h3>
-        </v-card-title>
-        <p class="subheading"><span class="title">Vendor</span>: {{ product.vendor }}</p>
-        <p class="subheading"><span class="title">Description: </span>{{ product.description.substring(0, 25) }}...</p>
-        <p class="subheading"><span class="title">Price:  </span>${{ product.price }}</p>
-        <v-card-actions class="btns justify-center">
-          <v-btn
-            :to="{ name: 'product', params: { id: product._id }}"
-            alt="description"
-            dark
-            class="subheading"
-            color="teal darken-3">
-            Description
-          </v-btn>
-          <v-btn
-            :disabled="!isUserLoggedIn"
-            dark
-            class="subheading btns_buyNow"
-            color="teal darken-1"
-            @click="addToCart(product); snackbar = true">Buy Now</v-btn>
-        </v-card-actions>
+        <h3 class="card_heading headline">{{ product.name }}</h3>
+        <div class="card_describe">
+          <p class="subheading" ><span class="title card_vendor">Vendor</span>: {{ product.vendor }}</p>
+          <p class="subheading">{{ product.description.substring(0, 60) }}...</p>
+          <p class="subheading card_price"><span class="title">Price:  </span>${{ product.price }}</p>
+          <v-card-actions justify-center>
+            <v-btn
+              :to="{ name: 'product', params: { id: product._id }}"
+              alt="description"
+              dark
+              class="subheading"
+              outline
+              color="light-blue darken-2">
+              Description
+            </v-btn>
+            <v-btn
+              :disabled="!isUserLoggedIn"
+              dark
+              class="subheading btns_buyNow"
+              color="light-blue darken-3"
+              @click="addToCart(product); snackbar = true">Buy Now</v-btn>
+          </v-card-actions>
+        </div>
       </v-flex>
     </v-layout>
     <v-snackbar
@@ -82,11 +83,23 @@ export default {
 
 <style lang="stylus" scoped>
   .card_heading
-    color #00695C
+    color #2087C4
+    font-weight bold
     word-wrap break-word
     text-align center
+    margin-bottom 1.5rem
   .card_content
-    max-width 270px
+    display flex
+    flex-direction column
+  .card_describe
+    margin-top auto
+  .card_title
+    justify-content center
+  .card_vendor
+    font-weight bold
+    color black
+  .card_price
+    color #c00f1b
   .cards
     max-width 330px
     display flex

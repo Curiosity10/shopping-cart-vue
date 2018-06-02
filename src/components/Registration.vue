@@ -13,7 +13,7 @@
           <v-card class="elevation-12 mt-5">
             <v-toolbar
               dark
-              class="teal darken-3">
+              class="blue darken-2">
               <v-toolbar-title>Registration form</v-toolbar-title>
             </v-toolbar>
             <v-card-text>
@@ -55,7 +55,7 @@
                 :disabled="!valid || loading"
                 :loading="loading"
                 outline
-                color="teal darken-3"
+                color="blue darken-2"
                 alt="Create account"
                 @click="onSubmit"
               >

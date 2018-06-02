@@ -58,14 +58,14 @@ export default {
 
 <style lang="stylus" scoped>
   .pages
-    color #00695C
+    color #2087C4
    .pagination
       width 100%
       &_link
-        color #00695C
+        color #2087C4
         width 170px
         &:disabled
           pointer-events auto
           cursor no-drop
-          color #B2DFDB
+          color #2087C4
 </style>

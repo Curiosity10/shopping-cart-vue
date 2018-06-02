@@ -2,6 +2,8 @@
 
 > A Vue.js project
 
+> Demo https://shopping-cart-vue.herokuapp.com/
+
 ## Build Setup
 
 ``` bash

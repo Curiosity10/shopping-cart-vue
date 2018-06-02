@@ -27,6 +27,9 @@ app.use(express.urlencoded({ extended: false }))
 app.use('/', expressStaticGzip(path.join(__dirname, 'dist')))
 
 app.use('/products', products)
+app.get('*', function (req, res, next) {
+  res.redirect('https://' + req.headers.host + req.path)
+})
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

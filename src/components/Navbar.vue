@@ -42,10 +42,12 @@
       </v-list>
     </v-navigation-drawer>
     <v-toolbar
+      id="nav"
       class="blue darken-2">
       <v-toolbar-side-icon
         name="Menu"
         dark
+        aria-label="Menu"
         class="hidden-md-and-up"
         @click="sideNav = !sideNav"/>
       <v-btn

@@ -31,16 +31,18 @@ module.exports = {
       includeDirectory: true,
       name: 'Shopping cart',
       short_name: 'Cart',
+      lang: 'en-US',
+      dir: 'ltr',
       description: 'Small app with MEVN stack',
       start_url: '/',
       background_color: '#ffffff',
       icons: [
         {
           src: path.resolve('src/assets/logo.png'),
-          sizes: '200x200'
+          sizes: [96, 128, 192, 256, 384, 512]
         }
       ],
-      display: 'standalone',
+      display: 'browser',
       theme_color: '#2087C4'
     }),
     new OfflinePlugin({

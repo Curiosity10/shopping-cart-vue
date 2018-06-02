@@ -6,6 +6,7 @@ import * as fb from 'firebase/app'
 import 'vuetify/dist/vuetify.min.css'
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
 require('firebase/auth')
+import * as OfflinePluginRuntime from 'offline-plugin/runtime'
 import App from './App.vue'
 import router from './router'
 import store from './store/index'
@@ -18,6 +19,10 @@ new Vue({
   store,
   router,
   created () {
+    OfflinePluginRuntime.install({
+      onUpdateReady: () => OfflinePluginRuntime.applyUpdate(),
+      onUpdated: () => window.swUpdate = true,
+    })
     fb.initializeApp({
       apiKey: 'AIzaSyC1XVw8-SymhR3kK3EanygHNeijXgjS9kE',
       authDomain: 'course-vue.firebaseapp.com',

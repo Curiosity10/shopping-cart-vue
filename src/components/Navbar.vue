@@ -74,11 +74,15 @@
             v-if="link.title !== 'Cart'"
             right
             medium>{{ link.icon }}</v-icon>
-          <v-badge color="white" v-if="link.title === 'Cart'">
+          <v-badge
+            v-if="link.title === 'Cart'"
+            color="white">
             <v-icon
               right
               medium>{{ link.badge }}</v-icon>
-            <span class="badge_text" slot="badge">{{ cart.length }}</span>
+            <span
+              slot="badge"
+              class="badge_text">{{ cart.length }}</span>
           </v-badge>
         </v-btn>
         <v-btn

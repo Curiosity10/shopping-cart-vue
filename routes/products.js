@@ -48,40 +48,4 @@ router.get('/:id', function (req, res, next) {
   })
 })
 
-router.get('/:vendor', function (req, res, next) {
-  const perPage = 3
-  const page = parseInt(req.query.page) || 0
-  let pages = 0
-  const nextUrl = ''
-  const prevUrl = ''
-  Product.count().exec(function (err, count) {
-    Product.find({ vendor: req.params.vendor })
-      .limit(perPage)
-      .skip(perPage * page)
-      .exec(function (err, products) {
-        pages = Math.floor(count / perPage)
-        const prevUrl = `http://localhost:3000/products?page=${page - 1}`
-        const nextUrl = `http://localhost:3000/products?page=${page + 1}`
-        const response = {
-          products,
-          currentPage: page,
-          pages,
-          count,
-          prevUrl: '',
-          nextUrl: ''
-        }
-        if (page === 0) {
-          Object.assign(response, { nextUrl })
-        } else if (page === pages - 1) {
-          Object.assign(response, { prevUrl })
-        } else if (page > 0 && page < pages) {
-          Object.assign(response, { nextUrl, prevUrl })
-        } else {
-          res.redirect('/products')
-        }
-        res.json(response)
-      })
-  })
-})
-
 module.exports = router

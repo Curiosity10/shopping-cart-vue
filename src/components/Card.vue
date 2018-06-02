@@ -30,14 +30,14 @@
               dark
               class="subheading"
               outline
-              color="light-blue darken-2">
+              color="light-blue darken-4">
               Description
             </v-btn>
             <v-btn
-              :disabled="!isUserLoggedIn"
+              v-if="isUserLoggedIn"
               dark
               class="subheading btns_buyNow"
-              color="light-blue darken-3"
+              color="light-blue darken-4"
               @click="addToCart(product); snackbar = true">Buy Now</v-btn>
           </v-card-actions>
         </div>
@@ -107,8 +107,4 @@ export default {
 
   .btns
     margin-top auto
-
-    &_buyNow:disabled
-      pointer-events auto
-      cursor no-drop
 </style>

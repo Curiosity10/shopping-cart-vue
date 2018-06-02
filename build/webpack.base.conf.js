@@ -5,6 +5,8 @@ const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 const { VueLoaderPlugin } = require('vue-loader')
+const OfflinePlugin = require('offline-plugin')
+const WebpackPwaManifest = require('webpack-pwa-manifest')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -23,7 +25,33 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   plugins: [
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new WebpackPwaManifest({
+      filename: 'manifest.json',
+      includeDirectory: true,
+      name: 'Shopping cart',
+      short_name: 'Cart',
+      description: 'Small app with MEVN stack',
+      start_url: '/',
+      background_color: '#ffffff',
+      icons: [
+        {
+          src: path.resolve('src/assets/logo.png'),
+          sizes: '200x200'
+        }
+      ],
+      display: 'standalone',
+      theme_color: '#2087C4'
+    }),
+    new OfflinePlugin({
+      updateStrategy: 'changed',
+      autoUpdate: 1000 * 60 * 60,
+
+      ServiceWorker: {
+        events: true,
+        navigateFallbackURL: '/'
+      }
+    })
   ],
   resolve: {
     extensions: ['.js', '.vue', '.json'],
@@ -47,7 +75,7 @@ module.exports = {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {
-          limit: 10000,
+          limit: 10 * 1024,
           name: utils.assetsPath('img/[name].[hash:7].[ext]')
         }
       },

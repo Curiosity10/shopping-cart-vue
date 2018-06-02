@@ -85,6 +85,8 @@ const webpackConfig = merge(baseWebpackConfig, {
     })
   ],
   optimization: {
+    nodeEnv: 'production',
+    minimize: true,
     concatenateModules: true,
     splitChunks: {
       chunks: 'all',

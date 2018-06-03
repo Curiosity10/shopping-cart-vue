@@ -11,6 +11,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
+const BrotliPlugin = require('brotli-webpack-plugin')
 
 const env = require('../config/prod.env')
 
@@ -80,6 +81,12 @@ const webpackConfig = merge(baseWebpackConfig, {
         config.build.productionGzipExtensions.join('|') +
         ')$'
       ),
+      threshold: 10240,
+      minRatio: 0.8
+    }),
+    new BrotliPlugin({
+      asset: '[path].br[query]',
+      test: /\.js$|\.css$|\.html$/,
       threshold: 10240,
       minRatio: 0.8
     })

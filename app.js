@@ -24,7 +24,9 @@ app.use(cors({ origin: true }))
 app.use(history())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-app.use('/', expressStaticGzip(path.join(__dirname, 'dist')))
+app.use('/', expressStaticGzip(path.join(__dirname, 'dist'), {
+  enableBrotli: true
+}))
 
 app.use('/products', products)
 

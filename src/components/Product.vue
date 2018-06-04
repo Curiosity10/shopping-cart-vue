@@ -18,18 +18,18 @@
           <div class="product_info">
             <h5 class="product_title display-1 mb-3 mt-3">{{ product.name }}</h5>
             <p class="product_category title">
-              <span class="product_title">Vendor</span>: {{ product.vendor }}
+              <span class="product_title">Vendor</span>: {{ product.vendor.charAt(0).toUpperCase() + product.vendor.substr(1) }}
             </p>
             <p class="product_price title">
             <span class="product_title">Price:</span> ${{ product.price }}</p>
             <p class="product_color title">
-              <span class="product_title">Color:</span> {{ product.color }}
-            </p>
-            <p class="product_country title">
-              <span class="product_title">Country:</span> {{ product.country }}
+              <span class="product_title">Color:</span>
+              <span
+                :alt="product.color"
+                :style="{ display: 'inline-block', backgroundColor: product.color, width: '40px', height: '20px',border: '1px solid black' }"/>
             </p>
             <p class="product_material title">
-              <span class="product_title">Material:</span> {{ product.material }}
+              <span class="product_title">Material:</span> {{ product.material.charAt(0).toUpperCase() + product.material.substr(1) }}
             </p>
             <div class="product_description title mb-5">
               <p class="product_title mb-2">Description: </p>{{ product.description }}
@@ -104,7 +104,8 @@ export default {
       margin-left 50px
 
     &_img
-      height 550px
+      height 100%
+      width 550px
     &_price
       color #c00f1b
     &_title
@@ -131,7 +132,7 @@ export default {
       text-align start
       &_img
         height 100%
-        width 100%
+        width 450px
       &_title
         text-align center
 

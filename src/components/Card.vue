@@ -20,7 +20,7 @@
         </router-link>
         <h3 class="card_heading headline">{{ product.name }}</h3>
         <div class="card_describe">
-          <p class="subheading" ><span class="title card_vendor">Vendor</span>: {{ product.vendor }}</p>
+          <p class="subheading" ><span class="title card_vendor">Vendor</span>: {{ product.vendor.charAt(0).toUpperCase() + product.vendor.substr(1) }}</p>
           <p class="subheading">{{ product.description.substring(0, 60) }}...</p>
           <p class="subheading card_price"><span class="title">Price:  </span>${{ product.price }}</p>
           <v-card-actions justify-center>

@@ -16,8 +16,8 @@ router.get('/', function (req, res, next) {
       .skip(perPage * page)
       .exec(function (err, products) {
         pages = Math.floor(count / perPage)
-        const prevUrl = `http://localhost:3000/products?page=${page - 1}`
-        const nextUrl = `http://localhost:3000/products?page=${page + 1}`
+        const prevUrl = `https://shopping-cart-vue.herokuapp.com/products?page=${page - 1}`
+        const nextUrl = `https://shopping-cart-vue.herokuapp.com/products?page=${page + 1}`
         const response = {
           products,
           currentPage: page,

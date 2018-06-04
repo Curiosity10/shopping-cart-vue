@@ -26,7 +26,8 @@
               <span class="product_title">Color:</span>
               <span
                 :alt="product.color"
-                :style="{ display: 'inline-block', backgroundColor: product.color, width: '40px', height: '20px',border: '1px solid black' }"/>
+                :style="{ backgroundColor: product.color}"
+                class="product_color__bg"/>
             </p>
             <p class="product_material title">
               <span class="product_title">Material:</span> {{ product.material.charAt(0).toUpperCase() + product.material.substr(1) }}
@@ -99,6 +100,12 @@ export default {
     flex-wrap wrap
     border 1px solid rgb(0, 105, 92)
     padding 30px
+    &_color__bg
+      display inline-block
+      width 25px
+      height 25px
+      border 1px solid #2b2b2b
+      border-radius 100%
 
     &_info
       margin-left 50px

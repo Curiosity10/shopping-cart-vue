@@ -25,7 +25,7 @@
             <p class="product_color title">
               <span class="product_title">Color:</span>
               <span
-                :alt="product.color"
+                :title="product.color"
                 :style="{ backgroundColor: product.color}"
                 class="product_color__bg"/>
             </p>
@@ -102,10 +102,10 @@ export default {
     padding 30px
     &_color__bg
       display inline-block
-      width 25px
-      height 25px
+      width 50px
+      height 20px
       border 1px solid #2b2b2b
-      border-radius 100%
+      border-radius 10px
 
     &_info
       margin-left 50px
@@ -128,19 +128,21 @@ export default {
       text-align center
       &_info
         margin-left 0
-  @media screen and (max-width: 400px)
-    .product
-      padding 10px
-      text-align start
-      &_info
-        margin-left 0
   @media screen and (max-width: 620px)
     .product
       text-align start
       &_img
+        width 100%
         height 100%
-        width 450px
       &_title
         text-align center
+  @media screen and (max-width: 400px)
+    .product
+      padding 10px
+      text-align start
+      &_img
+        height 220px
+      &_info
+        margin-left 0
 
 </style>

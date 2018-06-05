@@ -1,7 +1,6 @@
 export default {
   state: {
-    cart: JSON.parse(localStorage.getItem('cart')) || [],
-    charge: {}
+    cart: JSON.parse(localStorage.getItem('cart')) || []
   },
   mutations: {
     setCart: (state, payload) => {

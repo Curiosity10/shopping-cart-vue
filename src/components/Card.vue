@@ -10,13 +10,14 @@
           :aria-label="product.name"
           :alt="product.name"
           :to="{name: 'product', params: {id: product._id}}"
-          class="card_link"
+          class="card_link mb-3"
           tag="a">
           <v-card-media
             :src="product.image"
             :alt="product.name"
-            class="card_img ma-1 mb-3"
-            height="300px"/>
+            class="card_img ma-1 "
+            height="100%"
+          />
         </router-link>
         <h3 class="card_heading headline">{{ product.name }}</h3>
         <div class="card_describe">
@@ -100,6 +101,8 @@ export default {
     color black
   .card_price
     color #c00f1b
+  .card_link
+    height 300px
   .cards
     max-width 330px
     display flex

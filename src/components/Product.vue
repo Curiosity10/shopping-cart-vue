@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <section class="product mt-3">
+    <section class="product mt-3 elevation-10">
       <v-layout
         row
         wrap>
@@ -98,7 +98,7 @@ export default {
     display flex
     align-items center
     flex-wrap wrap
-    border 1px solid rgb(0, 105, 92)
+    border 1px solid #1c77ad
     padding 30px
     &_color__bg
       display inline-block
@@ -141,7 +141,8 @@ export default {
       padding 10px
       text-align start
       &_img
-        height 220px
+        height 250px
+        width 100%
       &_info
         margin-left 0
 

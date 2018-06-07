@@ -11,37 +11,40 @@
           row
           wrap
           fill-height
-          justify-space-around>
-          <v-btn
-            href="https://vk.com/mr.respekton"
-            color="white"
-            target="_blank"
-            flat
-            class="mb-0"
-          >
-            VK <v-icon>fab fa-vk</v-icon>
-          </v-btn>
-          <v-btn
-            href="https://github.com/Curiosity10"
-            color="white"
-            target="_blank"
-            flat
-            class="mb-0"
-          >
-            Github
-          </v-btn>
-          <v-btn
-            href="https://www.facebook.com/profile.php?id=100004164407398"
-            color="white"
-            target="_blank"
-            flat
-            class="mb-0"
-          >
-            Facebook
-          </v-btn>
+        >
+          <v-flex
+            class="d-flex"
+            justify-space-around>
+            <v-btn
+              href="https://vk.com/mr.respekton"
+              color="white"
+              target="_blank"
+              flat
+              class="mb-0"
+            >
+              VK <v-icon>fab fa-vk</v-icon>
+            </v-btn>
+            <v-btn
+              href="https://github.com/Curiosity10"
+              color="white"
+              target="_blank"
+              flat
+              class="mb-0"
+            >
+              Github
+            </v-btn>
+            <v-btn
+              href="https://www.facebook.com/profile.php?id=100004164407398"
+              color="white"
+              target="_blank"
+              flat
+              class="mb-0"
+            >
+              Facebook
+            </v-btn>
+          </v-flex>
           <v-flex
             xs12
-            pb-3
             text-xs-center
             white--text>
             &copy; 2018 — <strong>Dmitrij Alexandrovsky</strong>
@@ -99,5 +102,5 @@ export default {
       height 80px
   @media screen and (max-width: 420px)
     .footer
-      height 120px !important
+      height 80px !important
 </style>

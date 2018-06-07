@@ -24,26 +24,27 @@
           <p class="subheading" ><span class="title card_vendor">Vendor</span>: {{ product.vendor.charAt(0).toUpperCase() + product.vendor.substr(1) }}</p>
           <p class="subheading">{{ product.description.substring(0, 60) }}...</p>
           <p class="subheading card_price"><span class="title">Price:  </span>${{ product.price }}</p>
-          <v-card-actions justify-center>
-            <v-btn
-              :to="{ name: 'product', params: { id: product._id }}"
-              alt="description"
-              dark
-              class="subheading"
-              outline
-              round
-              color="light-blue darken-4">
-              Description
-            </v-btn>
-            <v-btn
-              v-if="isUserLoggedIn"
-              dark
-              round
-              class="subheading btns_buyNow"
-              color="light-blue darken-4"
-              @click="addToCart(product); snackbar = true">Buy Now</v-btn>
-          </v-card-actions>
         </div>
+        <v-card-actions justify-center>
+          <v-btn
+            :to="{ name: 'product', params: { id: product._id }}"
+            alt="description"
+            dark
+            class="subheading"
+            outline
+            round
+            color="light-blue darken-4">
+            Description
+          </v-btn>
+          <v-btn
+            v-if="isUserLoggedIn"
+            dark
+            round
+            class="subheading btns_buyNow"
+            color="light-blue darken-4"
+            @click="addToCart(product); snackbar = true">Buy Now</v-btn>
+        </v-card-actions>
+
       </v-flex>
     </v-layout>
     <v-snackbar
@@ -96,6 +97,7 @@ export default {
     flex-direction column
   .card_describe
     margin-top auto
+    padding-left 1rem
   .card_title
     justify-content center
   .card_vendor

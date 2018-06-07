@@ -14,7 +14,9 @@
     <v-layout
       row
       wrap>
-      <v-flex lg2>
+      <v-flex
+        lg2
+        class="facets" >
         <form>
           <v-radio-group
             v-model="radioGroup"
@@ -161,6 +163,8 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+  .facets
+    margin-top 50px
   .sort
     display flex
     margin-left auto

@@ -32,7 +32,7 @@ export default {
 
 <style lang="stylus" scoped>
   .cards_layout
-      justify-content space-between
+      justify-content space-around
   .item
     border 2px solid #bdbdbd
   @media screen and (max-width: 620px)

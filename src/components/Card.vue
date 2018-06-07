@@ -31,12 +31,14 @@
               dark
               class="subheading"
               outline
+              round
               color="light-blue darken-4">
               Description
             </v-btn>
             <v-btn
               v-if="isUserLoggedIn"
               dark
+              round
               class="subheading btns_buyNow"
               color="light-blue darken-4"
               @click="addToCart(product); snackbar = true">Buy Now</v-btn>
@@ -84,11 +86,11 @@ export default {
 
 <style lang="stylus" scoped>
   .card_heading
-    color #2087C4
     font-weight bold
     word-wrap break-word
     text-align center
     margin-bottom 1.5rem
+    font-family $body-font-family
   .card_content
     display flex
     flex-direction column
@@ -104,7 +106,7 @@ export default {
   .card_link
     height 300px
   .cards
-    max-width 330px
+    max-width 290px
     display flex
     flex-direction column
 

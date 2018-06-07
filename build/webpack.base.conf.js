@@ -29,8 +29,8 @@ module.exports = {
     new WebpackPwaManifest({
       filename: 'manifest.json',
       includeDirectory: true,
-      name: 'Shopping cart',
-      short_name: 'Cart',
+      name: 'P-mobile shop',
+      short_name: 'P-mobile',
       lang: 'en-US',
       dir: 'ltr',
       description: 'Small app with MEVN stack',
@@ -72,6 +72,10 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
         include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
+      },
+      {
+        test: /\.styl$/,
+        loader: ['style-loader', 'css-loader', 'stylus-loader']
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

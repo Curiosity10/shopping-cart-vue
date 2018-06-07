@@ -246,7 +246,8 @@ export default {
     font-size 20px
     &__title
       font-weight bold
-
+  .checkout
+    margin-bottom 100px
   .checkout_total
     font-size 24px
     color #c00f1b

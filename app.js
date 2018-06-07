@@ -7,6 +7,9 @@ const history = require('connect-history-api-fallback')
 const createError = require('http-errors')
 const expressStaticGzip = require('express-static-gzip')
 const products = require('./routes/products')
+const color = require('./routes/color')
+const material = require('./routes/material')
+const vendor = require('./routes/vendor')
 
 const app = express()
 
@@ -29,6 +32,9 @@ app.use('/', expressStaticGzip(path.join(__dirname, 'dist'), {
 }))
 
 app.use('/products', products)
+app.use('/color', color)
+app.use('/material', material)
+app.use('/vendor', vendor)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

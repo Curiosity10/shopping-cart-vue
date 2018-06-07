@@ -1,9 +1,9 @@
 <template>
-  <v-container grid-list-lg>
+  <v-container grid-list-sm>
     <v-layout
       row
       wrap
-      class="justify-space-around">
+      class="cards_layout">
       <v-card
         v-for="product in products"
         :key="product._id"
@@ -31,6 +31,11 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+  .cards_layout
+      justify-content space-between
   .item
     border 2px solid #bdbdbd
+  @media screen and (max-width: 620px)
+    .cards_layout
+      justify-content center
 </style>

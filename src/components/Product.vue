@@ -100,6 +100,7 @@ export default {
     flex-wrap wrap
     border 1px solid #1c77ad
     padding 30px
+    margin-bottom 100px
     &_color__bg
       display inline-block
       width 50px
@@ -140,6 +141,7 @@ export default {
     .product
       padding 10px
       text-align start
+      margin-bottom 120px
       &_img
         height 250px
         width 100%

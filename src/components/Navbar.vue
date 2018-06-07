@@ -43,7 +43,7 @@
     </v-navigation-drawer>
     <v-toolbar
       id="nav"
-      class="blue darken-2">
+      class="blue darken-2 mb-4">
       <v-toolbar-side-icon
         name="Menu"
         dark
@@ -57,7 +57,7 @@
         class="headline"
         flat>
         <v-icon left>home</v-icon>
-        Shopping Cart
+        P-mobile
       </v-btn>
       <v-spacer/>
       <v-toolbar-items

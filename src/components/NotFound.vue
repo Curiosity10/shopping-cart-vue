@@ -10,7 +10,7 @@
     </v-alert>
     <v-container
       grid-list-md
-      class="text-xs-center">
+      class="text-xs-center img">
       <v-avatar
         :tile="tile"
         :size="500"
@@ -47,6 +47,8 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+  .img
+    margin-bottom 80px
   @media screen and (max-width: 600px)
     .notFound_img
       width 300px

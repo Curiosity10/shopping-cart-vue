@@ -15,7 +15,7 @@ Vue.config.productionTip = true
 Vue.use(Vuetify)
 Vue.use(VueRouter)
 Vue.use(VueResource)
-Vue.http.options.root = 'http://localhost:3000/'
+Vue.http.options.root = 'https://shopping-cart-vue.herokuapp.com/'
 
 new Vue({
   store,

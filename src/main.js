@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Vuetify from 'vuetify'
 import * as fb from 'firebase/app'
 import 'vuetify/dist/vuetify.min.css'
+import VueResource from 'vue-resource'
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
 require('firebase/auth')
 import * as OfflinePluginRuntime from 'offline-plugin/runtime'
@@ -13,6 +14,8 @@ import store from './store/index'
 Vue.config.productionTip = true
 Vue.use(Vuetify)
 Vue.use(VueRouter)
+Vue.use(VueResource)
+Vue.http.options.root = 'http://localhost:3000/'
 
 new Vue({
   store,

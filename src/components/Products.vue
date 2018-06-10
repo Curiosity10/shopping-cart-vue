@@ -15,45 +15,87 @@
       row
       wrap>
       <v-flex
-        lg2
-        class="facets" >
-        <form>
-          <v-radio-group
-            v-model="radioGroup"
-            name="Vendors">
-            <v-radio
-              v-for="ven in vendor"
-              :key="ven._id"
-              :label="`${ven.vendor.charAt(0).toUpperCase() + ven.vendor.substr(1)}`"
-              :value="ven.vendor"
-            />
-          </v-radio-group>
+        xs12
+        class="mb-4 sort">
+        <p class="mb-2 mr-2 title">Sort by price:</p>
+        <v-btn-toggle v-model="toggle">
           <v-btn
-            @click="submit"
-          >
-            submit
+            flat
+            @click="checkPage('/products/price?price=1')">
+            <v-icon>arrow_upward</v-icon>
           </v-btn>
+          <v-btn
+            flat
+            @click="checkPage('/products/price?price=-1')"
+          >
+            <v-icon>arrow_downward</v-icon>
+          </v-btn>
+          <v-btn
+            flat
+            @click="checkPage('/products')"
+          >
+            Default
+          </v-btn>
+        </v-btn-toggle>
+      </v-flex>
+      <v-flex
+        lg2>
+        <form
+          class="d-flex form"
+          @submit.prevent="handleForm()">
+          <v-layout wrap>
+            <v-flex
+              xs6
+              sm4
+              lg12
+            >
+              <p class="title mb-3">Vendors: </p>
+              <v-checkbox
+                v-for="ven in vendor"
+                :key="ven.id"
+                :label="ven.vendor.charAt(0).toUpperCase() + ven.vendor.substr(1)"
+                v-model="vendors"
+                :value="ven.vendor"
+              />
+            </v-flex>
+            <v-flex
+              xs6
+              sm4
+              lg12>
+              <p class="title mb-3">Colors: </p>
+              <v-checkbox
+                v-for="col in color"
+                :key="col.id"
+                :label="col.color.charAt(0).toUpperCase() + col.color.substr(1)"
+                v-model="colors"
+                :value="col.color"
+              />
+            </v-flex>
+            <v-flex
+              xs6
+              lg12
+              sm4>
+              <p class="title mb-3">Materials: </p>
+              <v-checkbox
+                v-for="mat in material"
+                :key="mat.id"
+                :label="mat.material.charAt(0).toUpperCase() + mat.material.substr(1)"
+                v-model="materials"
+                :value="mat.material"
+              />
+            </v-flex>
+
+            <v-btn
+              sm12
+              class="my-3 primary"
+              type="submit"
+            >
+              submit
+            </v-btn>
+          </v-layout>
         </form>
       </v-flex>
       <v-flex lg10>
-        <v-flex
-          xs12
-          sm6
-          class="mb-4 sort">
-          <p class="mb-2 mr-2 title">Sort by price:</p>
-          <v-btn-toggle v-model="toggle_exclusive">
-            <v-btn
-              flat
-              @click="sortByPrice('/products/price?price=1')">
-              <v-icon>arrow_upward</v-icon>
-            </v-btn>
-            <v-btn
-              flat
-              @click="sortByPrice('/products/price?price=-1')">
-              <v-icon>arrow_downward</v-icon>
-            </v-btn>
-          </v-btn-toggle>
-        </v-flex>
         <Cards :products="products" />
       </v-flex>
       <v-flex lg12>
@@ -62,11 +104,11 @@
           <v-btn
             :disabled="prevUrl === ''"
             class="headline pagination_link"
-            @click="sortByPrice(prevUrl) ">Previous</v-btn>
+            @click="checkPage(prevUrl) ">Previous</v-btn>
           <v-btn
             :disabled="nextUrl === ''"
             class="headline pagination_link pagination_link__next"
-            @click="sortByPrice(nextUrl) ">Next</v-btn>
+            @click="checkPage(nextUrl) ">Next</v-btn>
         </div>
       </v-flex>
 
@@ -84,10 +126,14 @@ export default {
   data () {
     return {
       products: [],
-      radioGroup: 1,
+      toggle: 3,
+      vendors: [],
+      colors: [],
+      materials: [],
+      vendor: [],
+      ven: [],
       color: [],
       material: [],
-      vendor: [],
       currentPage: '',
       pages: '',
       prevUrl: '',
@@ -111,7 +157,7 @@ export default {
       ]
     }
   },
-  created () {
+  beforeCreate () {
     Api().get('/color')
       .then(response => {
         this.color = response.data
@@ -144,8 +190,9 @@ export default {
           this.prevUrl = response.data.prevUrl
         })
     },
-    sortByPrice (price) {
-      Api().get(price)
+    handleForm () {
+      this.$http.get('products/search{?vendor,color,material}',
+        { params: { vendor: this.vendors, color: this.colors, material: this.materials }})
         .then(response => {
           this.products = response.data.products
           this.currentPage = response.data.currentPage
@@ -153,18 +200,14 @@ export default {
           this.nextUrl = response.data.nextUrl
           this.prevUrl = response.data.prevUrl
         })
-    },
-    submit () {
-      // eslint-disable-next-line no-console
-      console.log('hello')
     }
   }
 }
 </script>
 
 <style lang="stylus" scoped>
-  .facets
-    margin-top 50px
+  .form
+    flex-wrap wrap
   .sort
     display flex
     margin-left auto
